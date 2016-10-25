@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         
         if segue.identifier == "detailTweetSegue" {
+            print("detailSegueCalled")
             let selectedIndex = tableView.indexPathForSelectedRow!.row
             let selectedTweet = self.allTweets[selectedIndex]
             
@@ -94,9 +95,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.tweet = currentTweet
         return cell
     }
-    //delegate methods...
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "detailTweetSegue", sender: nil)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("performSegue")
+//        self.performSegue(withIdentifier: "detailTweetSegue", sender: nil)
+//    }
 }
 

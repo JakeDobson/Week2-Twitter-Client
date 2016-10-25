@@ -24,10 +24,10 @@ class TweetTableViewCell: UITableViewCell {
                     userImageView.image = image
                     return
                 }
-                API.shared.getImageFor(urlString: user.profileImageURLString, completion: { (image) in
-                    if image != nil {
-                        SimpleCache.shared.setImage(image!, key: user.profileImageURLString)
-                        self.userImageView.image = image!
+                API.shared.getImageFor(urlString: user.profileImageURLString, completion: { (image) -> () in
+                    if let image = image {
+                        SimpleCache.shared.setImage(image, key: user.profileImageURLString)
+                        self.userImageView.image = image
                     }
                 })
             }
